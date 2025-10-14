@@ -1,0 +1,40 @@
+.Header nav{
+  background-color: #3d5a80;
+  width: 100%;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.Header h1 {
+  font-family: "Red Hat Text", sans-serif;
+  color: #ffffff;
+  text-shadow: 0px 0px 2px #ffffff;
+  background-color: #293241;
+  margin: 0px;
+
+  
+}
+
+.active,
+.inactive {
+  
+  padding: 3rem;
+  text-decoration: none;
+}
+
+.inactive:hover {
+  color: #ffbc1f;
+  text-shadow: 0px 0px 2px #ffbc1f;
+}
+
+.inactive {
+  color: #cbcbcb;
+}
+.active {
+  color: #ffffff;
+  text-shadow: 0px 0px 2px #ffffff;
+}
+
+.BottomBorder{
+  background-color: #ee6c4d;
+  height: 8px;
+}
