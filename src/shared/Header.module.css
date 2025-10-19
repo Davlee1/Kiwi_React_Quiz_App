@@ -1,15 +1,15 @@
 .Header nav{
-  background-color: #3d5a80;
+  background-color: hsla(281, 86%, 28%, 1);
   width: 100%;
-  border-radius: 6px 6px 0px 0px;
 }
 
 .Header h1 {
   font-family: "Red Hat Text", sans-serif;
   color: #ffffff;
   text-shadow: 0px 0px 2px #ffffff;
-  background-color: #293241;
+  background-color: hsla(276, 100%, 15%, 1);
   margin: 0px;
+  padding: .5rem;
 
   
 }
@@ -17,13 +17,14 @@
 .active,
 .inactive {
   
-  padding: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   text-decoration: none;
 }
 
 .inactive:hover {
-  color: #ffbc1f;
-  text-shadow: 0px 0px 2px #ffbc1f;
+  color: rgb(255, 194, 230);
+  text-shadow: 0px 0px 2px rgb(255, 133, 204);
 }
 
 .inactive {

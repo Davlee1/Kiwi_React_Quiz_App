@@ -1,9 +1,0 @@
-.TodoListItem{
-    margin-right: auto;
-    padding: 5px 0px 5px;
-}
-
-.TodoListItem:hover {
-  text-shadow: -1px 0px 0px #000000;
-}
-
