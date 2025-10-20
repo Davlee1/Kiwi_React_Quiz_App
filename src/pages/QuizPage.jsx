@@ -1,4 +1,4 @@
-import styles from "./QuizPage.module.css";
+/*import styles from "./QuizPage.module.css";*/
 import Quiz from "../features/Quiz/Quiz.jsx";
 const QuizPage = function ({ quizIsStarted, startQuiz}) {
   return quizIsStarted ? (

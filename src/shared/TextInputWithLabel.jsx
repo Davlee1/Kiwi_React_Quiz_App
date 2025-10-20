@@ -4,16 +4,15 @@ const Input = styled.input`
 margin: 0.5rem;
 `;
 
-function TextInputWithLabel({ elementId, label, onChange, ref, value }) {
+function TextInputWithLabel({ elementId, label, elementName }) {
   return (
     <>
       <label htmlFor={elementId}>{label}</label>
       <Input
         type="text"
         id={elementId}
-        ref={ref}
-        value={value}
-        onChange={onChange}
+        name={elementName}
+
       />
     </>
   );

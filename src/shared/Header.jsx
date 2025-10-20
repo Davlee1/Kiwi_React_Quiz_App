@@ -45,10 +45,18 @@ const Header = function ({ title }) {
           >
             About
           </NavLink>
+
+          <NavLink
+            to={"/createQuiz"}
+            className={({ isActive }) => {
+              return isActive ? styles.active : styles.inactive;
+            }}
+          >
+            Create Quiz
+          </NavLink>
         </nav>
 
         <MagentaHazeLine />
-
       </div>
     </>
   );
