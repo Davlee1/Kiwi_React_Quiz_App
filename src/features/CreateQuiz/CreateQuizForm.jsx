@@ -7,6 +7,7 @@ const CreateQuizForm = function ({ updateQuizlist }) {
   const [workingQuiz, setWorkingQuiz] = useState({});
   const [questions, setQuestions] = useState([]);
   const [QuestionNumber, setQuestionNumber] = useState(1);
+  //const [questions, setQuestions] = useState("");
 
   useEffect(() => {
     
@@ -61,8 +62,8 @@ const CreateQuizForm = function ({ updateQuizlist }) {
 
 
   const submitQuiz = () => {
-    //addQuestionsToWorkingQuiz();
-
+    
+    setWorkingQuiz({ ...workingQuiz, q: [...questions] });
     updateQuizlist(workingQuiz);
     setWorkingQuiz({});
     setQuestions([]);

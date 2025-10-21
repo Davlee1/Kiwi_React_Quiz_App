@@ -1,4 +1,4 @@
-//import styles from "./Quiz.module.css";
+import styles from "./Quiz.module.css";
 
 import { useState} from "react";
 import Question from "./Question.jsx"
@@ -35,7 +35,7 @@ const Quiz = function ({currentQuiz, endQuiz}) {
 <Score total={score} totalQuestions={totalQuestions} endQuiz={endQuiz}/>
   ):(
 <>
-    <p>{questionIndex + 1}/{totalQuestions}</p>
+    <p className={styles.qindex}>Progress: {questionIndex }/{totalQuestions}</p>
     <Question QuestionObj={currentQuestion} nextQuestion={nextQuestion} valueChange={valueChange}/>
 </>
   );

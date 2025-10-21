@@ -43,12 +43,12 @@ function App() {
     updateTitle();
   }, [location]);
 
-  const Callback = useCallback(() => {
-    return;
+  const emptyArray = useCallback(() => {
+    return [];
   }, []);
 
   const clearQuizList = () => {
-    setQuizList([]);
+    setQuizList(emptyArray());
   };
 
   const updateQuizlist = (quiz) => {
