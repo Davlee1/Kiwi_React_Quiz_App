@@ -6,7 +6,7 @@
         quiz, it will be shown on the home page. All saved Quizes will be shown
         there to be selected and taken.
       
-      Dependancies used:</p>
+      Dependancies used:
        
         -react-router
         -Babel plugin for styled components
