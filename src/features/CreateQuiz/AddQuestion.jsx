@@ -1,34 +1,35 @@
 import styles from "./AddQuestion.module.css";
+import TextInputWithLabel from "../../shared/TextInputWithLabel.jsx";
 
 const AddQuestion = function ({ questionNumber, addQuestion }) {
+  const questionLabel = "Question " + questionNumber + ":";
   return (
     <form onSubmit={addQuestion} className={styles.addQuestionForm}>
       <div className={styles.question}>
-        <label>Question {questionNumber}: </label>
-        <input type="text" name="question" ></input>
+        <TextInputWithLabel
+          label={questionLabel}
+          elementName="question"
+          elementId="question"
+        />
       </div>
 
-      <div className={styles.question}>
-        <label>Answer A: </label>
-        <input type="text" name="a"></input>
+      <div className={styles.answer}>
+        <TextInputWithLabel label="Answer A: " elementName="a" elementId="a" />
       </div>
 
-      <div className={styles.question}>
-        <label>Answer B: </label>
-        <input type="text" name="b"></input>
+      <div className={styles.answer}>
+        <TextInputWithLabel label="Answer B: " elementName="b" elementId="b" />
       </div>
 
-      <div className={styles.question}>
-        <label>Answer C: </label>
-        <input type="text" name="c"></input>
+      <div className={styles.answer}>
+        <TextInputWithLabel label="Answer C: " elementName="c" elementId="c" />
       </div>
 
-      <div className={styles.question}>
-        <label>Answer D: </label>
-        <input type="text" name="d"></input>
+      <div className={styles.answer}>
+        <TextInputWithLabel label="Answer D: " elementName="d" elementId="d" />
       </div>
 
-      <div className={styles.question}>
+      <div className={styles.answer}>
         <label>Correct Answer: </label>
         <select name="CorrectAnswer">
           <option value="a">A</option>

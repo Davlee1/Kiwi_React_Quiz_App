@@ -1,5 +1,5 @@
 import "./App.css";
-import {useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Routes, Route, useLocation } from "react-router";
 
 //components
@@ -11,8 +11,17 @@ import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const [title, setTitle] = useState("Quiz App");
-  const [quizList, setQuizList] = useState([]);
-  const [quizIsStarted, setquizIsStarted] = useState(false);
+  const [currentQuiz, setcurrentQuiz] = useState("");
+  const [quizList, setQuizList] = useState(() => {
+    // Load the quizlist from Local Storage if it exists
+    const savedData = localStorage.getItem("quizlist");
+    return savedData ? JSON.parse(savedData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("quizlist", JSON.stringify(quizList));
+    //console.log(quizList);
+  }, [quizList]);
 
   const location = useLocation();
   useEffect(() => {
@@ -21,7 +30,7 @@ function App() {
         case "/":
           setTitle("Quiz App");
           break;
-          case "/createQuiz":
+        case "/createQuiz":
           setTitle("Create Quiz");
           break;
         case "/about":
@@ -34,33 +43,47 @@ function App() {
     updateTitle();
   }, [location]);
 
-  
   const Callback = useCallback(() => {
     return;
   }, []);
-  
-const updateQuizlist = (quiz) => {
-setQuizList([...quizList, quiz]);
-}
 
+  const clearQuizList = () => {
+    setQuizList([]);
+  };
 
-const startQuiz = () => {
-  setquizIsStarted(true);
-}
+  const updateQuizlist = (quiz) => {
+    setQuizList([...quizList, { ...quiz }]);
+  };
 
+  const startQuiz = (x) => {
+    setcurrentQuiz(x);
+  };
+
+  const endQuiz = () => {
+    setcurrentQuiz("");
+  }
 
   return (
     <>
       <Header title={title} />
       <Routes>
-        <Route path="/" element={<QuizPage 
-        quizIsStarted={quizIsStarted}
-        startQuiz = {startQuiz}
-        />} />
+        <Route
+          path="/"
+          element={
+            <QuizPage
+              quizList={quizList}
+              currentQuiz={currentQuiz}
+              startQuiz={startQuiz}
+              clearQuizList={clearQuizList}
+              endQuiz={endQuiz}
+            />
+          }
+        />
 
-        <Route path="/createQuiz" element={<CreateQuiz
-        updateQuizlist={updateQuizlist}
-        />} />
+        <Route
+          path="/createQuiz"
+          element={<CreateQuiz updateQuizlist={updateQuizlist} />}
+        />
 
         <Route path="/about" element={<About />} />
 

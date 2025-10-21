@@ -1,5 +1,6 @@
-/*import styles from "./CreateQuizForm.module.css";*/
+import styles from "./CreateQuizForm.module.css";
 import { useState, useEffect } from "react";
+import TextInputWithLabel from "../../shared/TextInputWithLabel.jsx";
 import AddQuestion from "./AddQuestion.jsx";
 
 const CreateQuizForm = function ({ updateQuizlist }) {
@@ -8,18 +9,23 @@ const CreateQuizForm = function ({ updateQuizlist }) {
   const [QuestionNumber, setQuestionNumber] = useState(1);
 
   useEffect(() => {
-    console.log(workingQuiz);
-    console.log(questions);
+    
+    //console.log("current working questions:");
+    //console.log(questions);
+
+    //console.log("current working quizlist:");
+    //console.log(workingQuiz);
   }, [workingQuiz, QuestionNumber, questions]);
 
   const addQuizTitle = (e) => {
     e.preventDefault();
 
     const quizTitle = e.target.elements.quizTitle.value;
-    setWorkingQuiz({ title: quizTitle });
+    setWorkingQuiz({ title: quizTitle, q: [] });
   };
 
-  const addQuestion = (e) => {
+  const addQuestion =  (e) => {
+    
     e.preventDefault();
     const quizQuestion = e.target.elements.question.value;
     const answerA = e.target.elements.a.value;
@@ -44,12 +50,22 @@ const CreateQuizForm = function ({ updateQuizlist }) {
 
     setQuestions([...questions, questionObj]);
     setQuestionNumber(QuestionNumber + 1);
+    
+    setWorkingQuiz({ ...workingQuiz, q: [...questions] });
   };
 
+  const cancelQuiz = () => {
+    setWorkingQuiz({});
+    setQuestionNumber(1);
+  };
+
+
   const submitQuiz = () => {
-    setWorkingQuiz({ ...workingQuiz, ...questions });
+    //addQuestionsToWorkingQuiz();
+
     updateQuizlist(workingQuiz);
     setWorkingQuiz({});
+    setQuestions([]);
     setQuestionNumber(1);
   };
   return workingQuiz.title ? (
@@ -57,15 +73,20 @@ const CreateQuizForm = function ({ updateQuizlist }) {
       <AddQuestion questionNumber={QuestionNumber} addQuestion={addQuestion} />
 
       <button onClick={submitQuiz}>Submit Quiz</button>
+      <button className={styles.cancel} onClick={cancelQuiz}>
+        Cancel
+      </button>
     </>
   ) : (
     <>
       <br />
       <br />
       <form onSubmit={addQuizTitle}>
-        <label>Quiz Title: </label>
-        <input type="text" name="quizTitle"></input>
-        <br />
+        <TextInputWithLabel
+          label="Quiz Title: "
+          elementName="quizTitle"
+          elementId="quizTitle"
+        />
         <br />
         <button type="submit">Next</button>
       </form>

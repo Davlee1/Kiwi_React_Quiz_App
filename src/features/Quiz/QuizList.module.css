@@ -1,0 +1,25 @@
+.noQuiz{
+    padding:5rem;
+}
+
+.line{
+    height: 1px;
+    width: 70%;
+    margin:auto;
+    background-color: rgb(205, 205, 205);
+}
+
+.clear{
+    background-color: rgb(255, 54, 54);
+
+}
+.clear:hover {
+  border-color: rgb(255, 126, 126);
+  background-color: rgb(255, 126, 126);
+}
+
+.quizcontainer{
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+}
