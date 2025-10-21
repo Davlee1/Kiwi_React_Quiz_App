@@ -1,4 +1,4 @@
-# Kiwi_React_Quiz_App
+<h1>Kiwi_React_Quiz_App</h1>
       
         Hello! This is a quiz app made using react for
         the ctd Kiwi react course. To start, first Create a quiz using the
@@ -8,7 +8,7 @@
       
       Dependancies used:</p>
        
-        <li>react-router</li>
-        <li>Babel plugin for styled components</li>
+        -react-router
+        -Babel plugin for styled components
         
     
