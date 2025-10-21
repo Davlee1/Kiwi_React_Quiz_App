@@ -11,7 +11,7 @@ const PuceLine = styled.div`
   height: 8px;
 `;
 const MagentaHazeLine = styled.div`
-  background-color: hsla(318, 34%, 48%, 1);
+  background-color: hsla(318, 66%, 71%, 1.00);
   height: 8px;
 `;
 const IndigoLine = styled.div`
@@ -45,10 +45,18 @@ const Header = function ({ title }) {
           >
             About
           </NavLink>
+
+          <NavLink
+            to={"/createQuiz"}
+            className={({ isActive }) => {
+              return isActive ? styles.active : styles.inactive;
+            }}
+          >
+            Create Quiz
+          </NavLink>
         </nav>
 
         <MagentaHazeLine />
-
       </div>
     </>
   );

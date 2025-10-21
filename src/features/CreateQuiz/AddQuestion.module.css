@@ -1,0 +1,18 @@
+.addQuestionForm{
+    display:flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+}
+
+.question{
+    max-width: 80%;
+    padding: .5rem;
+    margin:auto;
+}
+
+.answer{
+    max-width: 30%;
+    padding: .5rem;
+    margin:auto;
+}

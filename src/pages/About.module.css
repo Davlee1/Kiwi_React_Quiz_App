@@ -1,4 +1,9 @@
 .about{
     text-align: justify;
-    padding: 1rem 5rem 1rem;
+    padding: 3rem 5rem 1rem;
+    max-width: 60%;
+    margin:auto;
+}
+.list{
+      list-style-type: none;
 }

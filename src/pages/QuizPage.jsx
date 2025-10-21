@@ -1,12 +1,13 @@
-import styles from "./QuizPage.module.css";
+//import styles from "./QuizPage.module.css";
 import Quiz from "../features/Quiz/Quiz.jsx";
-const QuizPage = function ({ quizIsStarted, startQuiz}) {
-  return quizIsStarted ? (
-    <p>Quiz</p>
+import QuizList from  "../features/Quiz/QuizList.jsx";
+const QuizPage = function ({ quizList, currentQuiz, startQuiz, clearQuizList, endQuiz}) {
+  return currentQuiz !=="" ? (
+    <Quiz currentQuiz={currentQuiz} endQuiz={endQuiz}/>
   ) : (
     <>
-      <p>Beginner quiz</p>
-      <button type="button" onClick={startQuiz}>Start Quiz!</button>
+      <QuizList quizList={quizList} startQuiz={startQuiz} clearQuizList={clearQuizList}/>
+      
     </>
   );
 };
