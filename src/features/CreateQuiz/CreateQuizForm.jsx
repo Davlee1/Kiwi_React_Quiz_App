@@ -5,7 +5,7 @@ import AddQuestion from "./AddQuestion.jsx";
 
 const CreateQuizForm = function ({ updateQuizlist }) {
   const [workingQuiz, setWorkingQuiz] = useState({});
-  const [questions, setQuestions] = useState([]);
+  //let questions = [];
   const [QuestionNumber, setQuestionNumber] = useState(1);
   //const [questions, setQuestions] = useState("");
 
@@ -14,9 +14,9 @@ const CreateQuizForm = function ({ updateQuizlist }) {
     //console.log("current working questions:");
     //console.log(questions);
 
-    //console.log("current working quizlist:");
-    //console.log(workingQuiz);
-  }, [workingQuiz, QuestionNumber, questions]);
+    console.log("current working quizlist:");
+    console.log(workingQuiz);
+  }, [workingQuiz, QuestionNumber]);
 
   const addQuizTitle = (e) => {
     e.preventDefault();
@@ -49,10 +49,14 @@ const CreateQuizForm = function ({ updateQuizlist }) {
       correct: correctAnswer,
     };
 
-    setQuestions([...questions, questionObj]);
+    //console.log("questionObj:");
+    //console.log(questionObj);
+
+    
     setQuestionNumber(QuestionNumber + 1);
     
-    setWorkingQuiz({ ...workingQuiz, q: [...questions] });
+    setWorkingQuiz({ ...workingQuiz, q: [...workingQuiz.q, questionObj] });
+
   };
 
   const cancelQuiz = () => {
@@ -63,10 +67,10 @@ const CreateQuizForm = function ({ updateQuizlist }) {
 
   const submitQuiz = () => {
     
-    setWorkingQuiz({ ...workingQuiz, q: [...questions] });
+    //setWorkingQuiz({ ...workingQuiz, q: [...questions] });
     updateQuizlist(workingQuiz);
     setWorkingQuiz({});
-    setQuestions([]);
+    //questions = [];
     setQuestionNumber(1);
   };
   return workingQuiz.title ? (
